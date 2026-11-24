@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>King’s Corporation – Cabinet d’experts informatiques</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600;700&family=Manrope:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0e1a33;--gold:#c9a227;--bg:#f4f6fa;--card:#fff;--text:#1d2740;--muted:#5b6788;--line:#dfe4ee;--h:#0e1a33;--lk:#8a6d0c;--err:#b3261e;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0b1428;--card:#131f3a;--text:#e3e8f5;--muted:#a3afcb;--line:#263456;--h:#fff;--lk:#e0bb4a;--err:#ff8a80;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0b1428;--card:#131f3a;--text:#e3e8f5;--muted:#a3afcb;--line:#263456;--h:#fff;--lk:#e0bb4a;--err:#ff8a80;color-scheme:dark}
+html{scroll-scroll-padding-top:env(safe-area-inset-top,0px);scroll-behavior:smooth}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Manrope',system-ui,sans-serif;color:var(--text);background:var(--bg);line-height:1.65}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--ink);z-index:10}
+h1,h2,h3{font-family:'Fraunces',Georgia,serif;line-height:1.15;color:var(--h)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:11;background:var(--ink)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;color:#fff;font-family:'Fraunces',serif;font-weight:700;font-size:1.2rem}
+.logo svg{width:28px;height:28px}
+nav{display:flex;gap:22px;align-items:center}
+nav a{color:#c9d2e8;font-weight:500;font-size:.95rem}
+.btn{display:inline-block;padding:12px 24px;border-radius:8px;font-weight:700;border:2px solid var(--gold);background:var(--gold);color:var(--ink);cursor:pointer;font:inherit;font-weight:700;transition:.2s}
+.btn:hover{background:transparent;color:var(--gold)}
+.btn.ghost{background:transparent;color:#fff;border-color:#4a5a82}
+nav .btn{padding:8px 18px;color:var(--ink);font-size:.95rem}
+nav .btn:hover{color:var(--gold)}
+.hero,.phero,.cta{background:var(--ink);color:#fff}
+.hero{padding:88px 0 100px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-120px;width:480px;height:480px;border:1px solid rgba(201,162,39,.35);border-radius:50%;box-shadow:0 0 0 60px rgba(201,162,39,.05)}
+.hero .wrap{position:relative;z-index:1}
+.hero h1,.phero h1,.cta h2{color:#fff}
+.hero h1{font-size:clamp(2.1rem,5.5vw,3.7rem);max-width:760px}
+.hero p,.phero p,.cta p{color:#b9c4de;max-width:580px;margin:18px 0 30px;font-size:1.08rem}
+.acts{display:flex;gap:14px;flex-wrap:wrap}
+.phero{padding:64px 0 72px}.phero h1{font-size:clamp(1.9rem,4.5vw,3rem);max-width:760px}.phero p{margin-bottom:0}
+.crumb{display:inline-block;margin-bottom:16px;color:#c9d2e8;font-size:.95rem}
+section{padding:72px 0}
+.head{margin-bottom:36px}.head h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-bottom:8px}.head p{color:var(--muted)}
+.grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(230px,1fr))}
+.card{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:12px;padding:26px}
+.card h3{font-size:1.15rem;margin-bottom:8px}.card p{color:var(--muted);font-size:.95rem}
+.more{display:inline-block;margin-top:12px;font-weight:700;color:var(--lk)}
+.stats{background:#16264a;padding:52px 0;color:#fff}
+.stats .grid{text-align:center}.stats strong{display:block;font-family:'Fraunces',serif;font-size:2.4rem;color:var(--gold)}.stats span{color:#b9c4de;font-size:.92rem}
+.about{display:grid;gap:40px;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));align-items:center}
+.about h2{font-size:clamp(1.6rem,3.5vw,2.3rem);margin-bottom:14px}.about p{color:var(--muted);margin-bottom:12px}
+.vals{list-style:none;display:grid;gap:12px}
+.vals li{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--gold);border-radius:8px;padding:14px 18px}.vals b{color:var(--h)}
+.steps{list-style:none;counter-reset:s;display:grid;gap:12px}
+.steps li{counter-increment:s;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px 16px 62px;position:relative}
+.steps li::before{content:counter(s);position:absolute;left:16px;top:50%;transform:translateY(-50%);width:32px;height:32px;border-radius:50%;background:var(--gold);color:var(--ink);font-weight:700;display:grid;place-items:center}
+.steps b{color:var(--h)}
+.others{display:flex;flex-wrap:wrap;gap:10px}
+.others a{padding:10px 16px;border:1.5px solid var(--line);border-radius:8px;background:var(--card);font-weight:700;color:var(--h)}
+.others a:hover{border-color:var(--gold)}
+.cta{text-align:center;padding:72px 0}.cta h2{font-size:clamp(1.6rem,3.5vw,2.3rem)}.cta p{margin:14px auto 26px}
+.auth{max-width:420px;margin:0 auto;padding:48px 24px 72px}
+.tabs{display:flex;background:var(--line);border-radius:10px;padding:4px;margin-bottom:24px}
+.tabs button{flex:1;padding:10px;border:0;background:transparent;border-radius:7px;font:inherit;font-weight:700;color:var(--muted);cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--card);color:var(--h)}
+.auth h1{font-size:1.7rem;margin-bottom:4px}.sub{color:var(--muted);margin-bottom:18px}
+label{display:block;font-weight:700;font-size:.9rem;margin:14px 0 6px}
+input{width:100%;padding:12px 14px;border:1.5px solid var(--line);border-radius:8px;font:inherit;background:var(--card);color:var(--text)}
+input:focus{border-color:var(--gold);outline:none}input.bad{border-color:var(--err)}
+.msg{font-size:.85rem;color:var(--err);min-height:1.2em;margin-top:3px}
+.auth .btn{width:100%;margin-top:18px}
+.ok{display:none;margin-top:16px;padding:12px 14px;background:rgba(46,160,90,.15);border:1px solid #2ea05a;border-radius:8px;font-size:.92rem}
+.back{display:inline-block;margin-bottom:20px;color:var(--muted);font-weight:500}
+[hidden]{display:none!important}
+footer{background:#0a1226;color:#8f9cbf;padding:32px 0;font-size:.9rem}
+footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+@media(max-width:640px){nav a:not(.btn){display:none}.hero{padding:60px 0 72px}section{padding:56px 0}}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+  <a href="#accueil" class="logo"><svg viewBox="0 0 32 32" fill="#c9a227" aria-hidden="true"><path d="M3 24 1 8l8 7 7-11 7 11 8-7-2 16z"/><rect x="4" y="26" width="24" height="3" rx="1"/></svg>King’s Corporation</a>
+  <nav><a href="#accueil">Accueil</a><a class="btn" href="#connexion">Connexion</a></nav>
+</div></header>
+
+<main>
+<div class="view" id="v-accueil">
+  <div class="hero"><div class="wrap">
+    <h1>Des systèmes d’information fiables, sécurisés et prêts à grandir avec vous.</h1>
+    <p>King’s Corporation est un cabinet d’experts informatiques. Nous concevons, sécurisons et faisons évoluer l’informatique des entreprises.</p>
+    <div class="acts"><a class="btn" href="#infrastructure">Suivant</a><button class="btn ghost" id="goServ">Découvrir nos services</button></div>
+  </div></div>
+  <section id="services"><div class="wrap">
+    <div class="head"><h2>Nos domaines d’expertise</h2><p>Une équipe unique pour couvrir l’ensemble de vos besoins informatiques.</p></div>
+    <div class="grid" id="homeCards"></div>
+  </div></section>
+  <div class="stats"><div class="wrap grid">
+    <div><strong>15+</strong><span>années d’expérience</span></div><div><strong>200</strong><span>projets livrés</span></div>
+    <div><strong>98 %</strong><span>de clients fidèles</span></div><div><strong>24/7</strong><span>supervision des systèmes</span></div>
+  </div></div>
+  <section><div class="wrap about">
+    <div><h2>Un cabinet à taille humaine, avec des standards élevés.</h2>
+    <p>Depuis sa création, King’s Corporation accompagne des PME et des grands comptes dans leur transformation numérique. Nos ingénieurs travaillent comme une extension de votre équipe.</p>
+    <p>Nous privilégions des solutions simples, documentées et durables.</p></div>
+    <ul class="vals"><li><b>Rigueur.</b> Chaque livrable est testé, documenté et transféré.</li><li><b>Transparence.</b> Des devis clairs et un suivi partagé.</li><li><b>Confidentialité.</b> Vos données restent protégées à chaque étape.</li></ul>
+  </div></section>
+  <div class="cta"><div class="wrap"><h2>Prêt à découvrir nos services ?</h2><p>Parcourez nos quatre domaines d’expertise, étape par étape.</p><a class="btn" href="#infrastructure">Suivant</a></div></div>
+</div>
+
+<div class="view" id="v-infrastructure" hidden></div>
+<div class="view" id="v-cybersecurite" hidden></div>
+<div class="view" id="v-developpement" hidden></div>
+<div class="view" id="v-support" hidden></div>
+
+<div class="view" id="v-connexion" hidden><div class="auth">
+  <a class="back" href="#support">← Retour aux services</a>
+  <div class="tabs" role="tablist"><button role="tab" id="t-login" aria-selected="true">Connexion</button><button role="tab" id="t-signup" aria-selected="false">Inscription</button></div>
+  <form id="login" novalidate>
+    <h1>Bon retour</h1><p class="sub">Connectez-vous à votre espace client.</p>
+    <label for="l-e">Adresse e-mail</label><input id="l-e" type="email" autocomplete="email" placeholder="vous@entreprise.com"><div class="msg"></div>
+    <label for="l-p">Mot de passe</label><input id="l-p" type="password" autocomplete="current-password"><div class="msg"></div>
+    <button class="btn" type="submit">Se connecter</button><div class="ok" role="status">Connexion réussie. Redirection vers votre espace…</div>
+  </form>
+  <form id="signup" novalidate hidden>
+    <h1>Créer un compte</h1><p class="sub">Rejoignez King’s Corporation en une minute.</p>
+    <label for="s-n">Nom complet</label><input id="s-n" autocomplete="name"><div class="msg"></div>
+    <label for="s-e">Adresse e-mail professionnelle</label><input id="s-e" type="email" autocomplete="email"><div class="msg"></div>
+    <label for="s-p">Mot de passe (8 caractères minimum)</label><input id="s-p" type="password" autocomplete="new-password"><div class="msg"></div>
+    <label for="s-q">Confirmer le mot de passe</label><input id="s-q" type="password" autocomplete="new-password"><div class="msg"></div>
+    <button class="btn" type="submit">Créer mon compte</button><div class="ok" role="status">Compte créé. Vous pouvez maintenant vous connecter.</div>
+  </form>
+</div></div>
+</main>
+
+<footer><div class="wrap"><span>© 2026 King’s Corporation. Tous droits réservés.</span><span>contact@kings-corporation.com</span></div></footer>
+
+<script>
+const D={
+infrastructure:{t:'Infrastructure &amp; cloud',h:'Des serveurs et des réseaux qui tiennent la charge, jour après jour.',i:'Nous concevons, installons et supervisons l’infrastructure qui fait tourner votre entreprise, sur site ou dans le cloud.',
+c:[['Serveurs et réseaux','Installation, configuration et optimisation de vos serveurs, postes et réseaux.'],['Migration vers le cloud','Transfert de vos applications et données vers le cloud, sans interruption.'],['Sauvegarde et reprise','Sauvegardes automatiques et plan de reprise après une panne.'],['Supervision','Surveillance continue, avec alertes avant que les utilisateurs ne soient touchés.']],
+s:[['Audit','Nous analysons votre parc, vos usages et vos besoins.'],['Plan','Nous proposons une architecture chiffrée et un calendrier.'],['Déploiement','Nous installons ou migrons, par étapes, avec tests.'],['Suivi','Nous surveillons et faisons évoluer l’ensemble.']],n:'cybersecurite',nl:'la cybersécurité'},
+cybersecurite:{t:'Cybersécurité',h:'Protégez vos données avant qu’un incident ne coûte cher.',i:'Nous identifions vos points faibles, renforçons vos défenses et préparons vos équipes à réagir.',
+c:[['Audit de sécurité','Tests et revue de votre système pour repérer les failles prioritaires.'],['Protection des données','Chiffrement, contrôle des accès et conformité RGPD.'],['Sensibilisation','Formations courtes pour repérer l’hameçonnage et les fraudes.'],['Réponse aux incidents','Procédure claire et équipe disponible en cas d’attaque.']],
+s:[['Évaluation','Nous mesurons votre niveau de risque actuel.'],['Correction','Nous traitons les failles par ordre de gravité.'],['Protection','Nous mettons en place outils et règles d’accès.'],['Contrôle','Nous testons régulièrement et mettons à jour.']],n:'developpement',nl:'le développement sur mesure'},
+developpement:{t:'Développement sur mesure',h:'Des applications construites autour de votre façon de travailler.',i:'Nous créons des sites, applications web et outils internes adaptés à vos processus, plutôt que l’inverse.',
+c:[['Applications web','Plateformes, espaces clients et outils de gestion dans un navigateur.'],['Applications mobiles','Applications Android et iOS pensées pour le terrain.'],['Sites vitrines et e-commerce','Sites rapides, clairs et faciles à mettre à jour.'],['Intégrations','Connexion de vos outils pour éviter les doubles saisies.']],
+s:[['Cadrage','Nous définissons ensemble besoins et priorités.'],['Maquette','Vous validez l’aspect et le parcours avant le développement.'],['Développement','Nous livrons par étapes, avec démonstrations régulières.'],['Mise en ligne','Nous déployons, formons vos équipes et assurons la maintenance.']],n:'support',nl:'le support et la maintenance'},
+support:{t:'Support &amp; maintenance',h:'Une équipe qui répond vite quand quelque chose ne va plus.',i:'Nous prenons en charge l’assistance de vos utilisateurs et la maintenance de votre parc informatique.',
+c:[['Assistance utilisateurs','Un point de contact unique pour vos questions et incidents.'],['Maintenance préventive','Mises à jour et contrôles réguliers pour éviter les pannes.'],['Gestion du parc','Inventaire, renouvellement et suivi des postes et licences.'],['Intervention sur site','Nos techniciens se déplacent quand la panne ne se règle pas à distance.']],
+s:[['Demande','Vous ouvrez un ticket depuis votre espace client.'],['Diagnostic','Nous analysons le problème et annonçons le délai.'],['Résolution','Nous corrigeons à distance ou sur site.'],['Compte rendu','Nous documentons pour éviter la récidive.']],n:'connexion',nl:''}
+};
+const K=Object.keys(D),$=s=>document.querySelector(s);
+$('#homeCards').innerHTML=K.map(k=>`<article class="card"><h3>${D[k].t}</h3><p>${D[k].i}</p><a class="more" href="#${k}">En savoir plus</a></article>`).join('');
+K.forEach(k=>{const d=D[k],last=d.n==='connexion';
+$('#v-'+k).innerHTML=`<div class="phero"><div class="wrap"><a class="crumb" href="#accueil">← Accueil</a><h1>${d.h}</h1><p>${d.i}</p></div></div>
+<section><div class="wrap"><div class="head"><h2>Ce que nous faisons</h2></div><div class="grid">${d.c.map(c=>`<article class="card"><h3>${c[0]}</h3><p>${c[1]}</p></article>`).join('')}</div></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="head"><h2>Notre façon de travailler</h2></div><ol class="steps">${d.s.map(s=>`<li><b>${s[0]}.</b> ${s[1]}</li>`).join('')}</ol></div></section>
+<section style="padding-top:0"><div class="wrap"><div class="head"><h2>Nos autres domaines</h2></div><div class="others">${K.filter(x=>x!==k).map(x=>`<a href="#${x}">${D[x].t}</a>`).join('')}</div></div></section>
+<div class="cta"><div class="wrap"><h2>${last?'Vous avez fait le tour de nos services':'Découvrez la suite'}</h2><p>${last?'Passez à l’étape suivante pour créer votre compte ou vous connecter.':'Poursuivez avec notre prochain domaine d’expertise : '+d.nl+'.'}</p><a class="btn" href="#${d.n}">Suivant</a></div></div>`;});
+
+const views=['accueil',...K,'connexion'];
+function tab(n){$('#t-login').setAttribute('aria-selected',n==='login');$('#t-signup').setAttribute('aria-selected',n==='signup');$('#login').hidden=n!=='login';$('#signup').hidden=n!=='signup'}
+function route(){let h=location.hash.slice(1)||'accueil';if(h==='inscription'){h='connexion';tab('signup')}if(!views.includes(h))h='accueil';
+document.querySelectorAll('.view').forEach(v=>v.hidden=v.id!=='v-'+h);window.scrollTo(0,0)}
+addEventListener('hashchange',route);route();
+$('#goServ').onclick=()=>$('#services').scrollIntoView({behavior:'smooth'});
+$('#t-login').onclick=()=>tab('login');$('#t-signup').onclick=()=>tab('signup');
+const em=v=>/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+function check(f,r){let ok=true;f.querySelector('.ok').style.display='none';r.forEach(([id,t,m])=>{const e=f.querySelector('#'+id),bad=!t(e.value.trim());e.classList.toggle('bad',bad);e.nextElementSibling.textContent=bad?m:'';if(bad)ok=false});return ok}
+$('#login').onsubmit=e=>{e.preventDefault();const f=e.target;if(check(f,[['l-e',em,'Saisissez une adresse e-mail valide.'],['l-p',v=>v.length>0,'Saisissez votre mot de passe.']]))f.querySelector('.ok').style.display='block'};
+$('#signup').onsubmit=e=>{e.preventDefault();const f=e.target;if(check(f,[['s-n',v=>v.length>=2,'Saisissez votre nom complet.'],['s-e',em,'Saisissez une adresse e-mail valide.'],['s-p',v=>v.length>=8,'8 caractères minimum.'],['s-q',v=>v.length>0&&v===f.querySelector('#s-p').value,'Les mots de passe ne correspondent pas.']]))f.querySelector('.ok').style.display='block'};
+</script>
+</body>
+</html>
